@@ -1,5 +1,8 @@
 # Base Email Sender Plugin
 
+https://github.com/kaiyuanshe/KYS-service/assets/13283837/8ddbd810-fed9-4d3a-812d-6d4931b42ca4
+
+
 ## 说明
 
 一个基于 Base 插件的工具
