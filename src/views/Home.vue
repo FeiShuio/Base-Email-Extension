@@ -64,8 +64,8 @@
           <v-snackbar v-model="sendDone" multi-line>
             发送完成
             <template v-slot:actions>
-              <v-btn color="red" variant="text" @click="sendDone = false">
-                Close
+              <v-btn color="success" variant="text" @click="sendDone = false">
+                关闭
               </v-btn>
             </template>
           </v-snackbar>
@@ -90,7 +90,7 @@ const apiKey = ref(null)
 const from = ref(null);
 const fromAddress = ref(null);
 // email basic info
-const subject = ref(null);
+const subject = ref("这是一个标题 #1");
 const content = ref('<h1>Hi, 收件人</h1><p>这是邮件内容</p><p>你可以根据你的需要设置内容，并修改其样式。对于需要使用多维表格内容替换的，可使用 #1、#2 等替换，发送时将会自动替换为变量</p>')
 // var settings
 const varOne = ref(null);
@@ -126,7 +126,7 @@ const onSteperChange = res => {
 }
 
 function template(base, item) {
-  console.log(item,varOne,varTwo,varThree);
+  console.log(item, varOne, varTwo, varThree);
   return base.replace("#1", varOne.value ? item.fields[varOne.value.id][0].text : "")
     .replace("#2", varTwo.value ? item.fields[varTwo.value.id][0].text : "")
     .replace("#3", varThree.value ? item.fields[varThree.value.id][0].text : "")
@@ -140,7 +140,9 @@ const sendEmail = () => {
     table.getRecords({ pageSize: 5000 }).then(items => {
       total.value = items.total;
       showProgress.value = true;
+      sendDone.value = false;
       items.records.map(item => {
+        progress.value++;
         axios({
           "method": "POST",
           "url": "/api/send",
@@ -150,17 +152,20 @@ const sendEmail = () => {
           "data": {
             "SENDER_NAME": from.value,
             "TO": item.fields[to.value.id][0].text,
-            "CONTENT": template(content.value),
+            "CONTENT": template(content.value, item),
             "API_USER": apiUser.value,
             "API_KEY": apiKey.value,
             "SENDER_ADDRESS": fromAddress.value,
-            "SUBJECT": template(subject.value)
+            "SUBJECT": template(subject.value, item)
           }
         }).then(res => {
           if (res.status == 200) {
             progress.value++;
           }
-
+          if (progress.value >= total.value) {
+            showProgress.value = false;
+            sendDone.value = true;
+          }
         }).catch(console.error)
       })
 
