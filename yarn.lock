@@ -178,6 +178,11 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz#d7c6e6755c78567a951e04ab52ef0fd26de59f32"
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
+"@lark-base-open/js-sdk@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@lark-base-open/js-sdk/-/js-sdk-0.3.2.tgz#a07c396df7ae51a3d19efe9414604df00aa6f51a"
+  integrity sha512-bLHZTrT1JHtnnq/XRTtAQ//4ikYhSuk140ZWFB7bUd1yZLukWslZoD4grycpFc1Z0EpXEhkMqUtq5xqnJRBAgw==
+
 "@mdi/font@7.0.96":
   version "7.0.96"
   resolved "https://registry.yarnpkg.com/@mdi/font/-/font-7.0.96.tgz#9853c222623072f5575b4039c8c195ea929b61fc"
