@@ -1,7 +1,16 @@
 <template>
-  <HelloWorld />
+  <div>
+    <v-btn prepend-icon="$vuetify" stacked>
+      Button
+    </v-btn>
+    <v-btn prepend-icon="$vuetify" stacked>
+      Button
+    </v-btn>
+    <v-btn prepend-icon="$vuetify" stacked>
+      Button
+    </v-btn>
+  </div>
 </template>
 
 <script setup>
-  import HelloWorld from '@/components/HelloWorld.vue'
 </script>
