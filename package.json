@@ -11,6 +11,8 @@
   "dependencies": {
     "@lark-base-open/js-sdk": "^0.3.2",
     "@mdi/font": "7.0.96",
+    "@vueup/vue-quill": "^1.2.0",
+    "axios": "^1.5.1",
     "core-js": "^3.29.0",
     "pinia": "^2.0.0",
     "roboto-fontface": "*",
