@@ -125,14 +125,38 @@ const onSteperChange = res => {
   }
 }
 
+function getValueFromFields(item, fieldsId) {
+  switch (typeof item.fields[fieldsId]) {
+    case 'object':
+      if (Array.isArray(item.fields[fieldsId])) {
+        return item.fields[fieldsId][0].text
+      } else {
+        return item.fields[fieldsId].text;
+      }
+      break;
+
+    case 'boolean':
+      return item.fields[fieldsId];
+      break;
+
+    case 'number':
+      return item.fields[fieldsId];
+      break;
+
+
+    default:
+      return ""
+      break;
+  }
+}
 function template(base, item) {
-  console.log(item, varOne, varTwo, varThree);
-  return base.replace("#1", varOne.value ? item.fields[varOne.value.id][0].text : "")
-    .replace("#2", varTwo.value ? item.fields[varTwo.value.id][0].text : "")
-    .replace("#3", varThree.value ? item.fields[varThree.value.id][0].text : "")
-    .replace("#4", varFour.value ? item.fields[varFour.value.id][0].text : "")
-    .replace("#5", varFive.value ? item.fields[varFive.value.id][0].text : "")
-    .replace("#6", varSix.value ? item.fields[varSix.value.id][0].text : "");
+  console.log(item);
+  return base.replace("#1", varOne.value ? getValueFromFields(item, varOne.value.id) : "")
+    .replace("#2", varTwo.value ? getValueFromFields(item, varTwo.value.id) : "")
+    .replace("#3", varThree.value ? getValueFromFields(item, varThree.value.id) : "")
+    .replace("#4", varFour.value ? getValueFromFields(item, varFour.value.id) : "")
+    .replace("#5", varFive.value ? getValueFromFields(item, varFive.value.id) : "")
+    .replace("#6", varSix.value ? getValueFromFields(item, varSix.value.id) : "");
 }
 
 const sendEmail = () => {
