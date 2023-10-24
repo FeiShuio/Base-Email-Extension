@@ -20,7 +20,7 @@ https://github.com/kaiyuanshe/KYS-service/assets/13283837/8ddbd810-fed9-4d3a-812
 
 ## 使用方法
 
-1. 复制插件地址：`https://base-email-vue.vercel.app/`，并填写加载
+1. 复制插件地址：`https://email.base.feishu.io`，并填写加载
 2. 输入 Send Cloud 的 API User 和 API Key
 3. 设置邮件内容，并发送
 
